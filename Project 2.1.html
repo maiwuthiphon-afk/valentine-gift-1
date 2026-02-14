@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine Day ! ❤️🐷</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff4d6d;
+            --secondary-color: #ffb3c1;
+            --bg-gradient: linear-gradient(135deg, #fff5f5 0%, #ffe3e8 100%);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: var(--bg-gradient);
+            font-family: 'Mali', cursive;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            color: var(--secondary-color);
+            user-select: none;
+            z-index: -1;
+            animation: float 6s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem 2rem;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(255, 77, 109, 0.15);
+            text-align: center;
+            max-width: 420px;
+            width: 85%;
+            border: 2px solid white;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 { color: var(--primary-color); margin-bottom: 1.5rem; font-size: 1.8rem; }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 15px;
+            font-size: 1.3rem;
+            text-align: center;
+            box-sizing: border-box;
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: 'Mali', cursive;
+        }
+
+        input[type="number"]:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(255, 77, 109, 0.1);
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
+        }
+
+        button:hover {
+            background-color: #ff758f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 77, 109, 0.4);
+        }
+
+        #error-msg {
+            color: #e63946;
+            font-size: 0.9rem;
+            margin-top: 12px;
+            display: none;
+            font-weight: bold;
+        }
+
+        .math-hint-section {
+            margin-top: 35px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .math-label {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 10px;
+            display: block;
+            font-weight: bold;
+        }
+
+        .math-formula {
+            background: #fffafa;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 1.6rem;
+            color: #444;
+            display: inline-block;
+            border: 1px solid #ffe5e9;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    for (let i = 0; i < 15; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerHTML = '❤️';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDelay = Math.random() * 5 + 's';
+        heart.style.fontSize = Math.random() * 15 + 10 + 'px';
+        document.body.appendChild(heart);
+    }
+</script>
+
+<div class="container" id="card">
+    <h1>Happy Valentine Day ! ❤️🐷</h1>
+    
+    <div class="input-group">
+        <input type="number" id="ans" placeholder="ใส่ตัวเลขคำตอบที่นี่..." />
+        <div id="error-msg">คำตอบยังไม่ถูกนะ ลองคำนวณอีกทีสิ! ❤️</div>
+    </div>
+
+    <button onclick="check()">Open Your Gift</button>
+
+    <div class="math-hint-section">
+        <span class="math-label">The password is</span>
+        <div class="math-formula">
+            $$\left( \int_{1}^{3} (3x^2 + 2) \,dx \right) + 1$$
+        </div>
+    </div>
+</div>
+
+<script>
+    function check() {
+        const val = document.getElementById('ans').value;
+        const msg = document.getElementById('error-msg');
+        const card = document.getElementById('card');
+
+        // รหัสผ่านคือ 31
+        if (val === "31") {
+            // อย่าลืมเปลี่ยนลิงก์ด้านล่างนี้เป็นลิงก์ Photobook ของคุณนะครับ
+            window.location.href = "https://drive.google.com/file/d/1BZ-uUyAr9YAZxXGHsKThfKbNK2OgbFGw/view?usp=sharing"; 
+        } else {
+            msg.style.display = 'block';
+            card.animate([
+                { transform: 'translateX(0)' },
+                { transform: 'translateX(-6px)' },
+                { transform: 'translateX(6px)' },
+                { transform: 'translateX(0)' }
+            ], { duration: 250 });
+        }
+    }
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</body>
+</html>
